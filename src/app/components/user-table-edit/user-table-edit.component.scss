@@ -1,0 +1,31 @@
+.user-table-edit {
+    background-color: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+
+    h1 {
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    &__input {
+        width: 300px;
+
+        &-email {
+            color: blue !important;
+            cursor: pointer;
+        }
+    }
+
+    &__active {
+        font-size: 24px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    &__btn {
+        margin-top: 15px;
+    }
+}

@@ -1,0 +1,45 @@
+<form
+  [formGroup]="formUserData"
+  (ngSubmit)="onCloseDialog()"
+  class="user-table-edit"
+>
+  <h1>User detail</h1>
+  <mat-form-field class="user-table-edit__input">
+    <mat-label>Name</mat-label>
+    <input matInput name="name" type="text" [value]="userData.name" disabled />
+  </mat-form-field>
+  <mat-form-field class="user-table-edit__input">
+    <mat-label>Balance</mat-label>
+    <input matInput name="balance" [value]="userData.balance" disabled />
+  </mat-form-field>
+  <mat-form-field class="user-table-edit__input">
+    <mat-label>Email</mat-label>
+    <a href="mailto:userData.email"
+      ><input
+        class="user-table-edit__input-email"
+        matInput
+        name="email"
+        [value]="userData.email"
+        readonly
+    /></a>
+  </mat-form-field>
+  <mat-form-field class="user-table-edit__input">
+    <mat-label>Registration</mat-label>
+    <input
+      matInput
+      name="registerAt"
+      [value]="userData.registerAt | date : 'dd/MM/yyyy HH:mm:ss'"
+      disabled
+    />
+  </mat-form-field>
+  <span class="user-table-edit__active"
+    >Active &nbsp;<mat-slide-toggle
+      color="primary"
+      formControlName="active"
+      [(ngModel)]="isChecked"
+    ></mat-slide-toggle
+  ></span>
+  <button class="user-table-edit__btn" mat-raised-button color="primary">
+    Update
+  </button>
+</form>

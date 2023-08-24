@@ -1,0 +1,28 @@
+.user-contain {
+    .icon {
+        width: 20px;
+        cursor: pointer;
+
+        &:first-child {
+            margin-right: 5px;
+        }
+
+        &:hover {
+            opacity: .5;
+        }
+    }
+}
+
+.active {
+    background-color: green;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.inactive {
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}

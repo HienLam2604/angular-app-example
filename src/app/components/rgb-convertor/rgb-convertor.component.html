@@ -1,0 +1,70 @@
+<div class="rgb-convertor">
+  <h1>RBG to Hex Converion</h1>
+  <form
+    class="rgb-convertor-form"
+    [formGroup]="rgbConvertorForm"
+    (ngSubmit)="convertRgb()"
+  >
+    <mat-form-field>
+      <mat-label>R</mat-label>
+      <input matInput type="text" formControlName="r" />
+      <mat-error *ngIf="rgbConvertorForm.get('r')?.hasError('required')"
+        >Please enter number</mat-error
+      >
+      <mat-error
+        *ngIf="
+          rgbConvertorForm.get('r')?.hasError('pattern') ||
+          rgbConvertorForm.get('r')?.hasError('min') ||
+          rgbConvertorForm.get('r')?.hasError('max')
+        "
+        >Please enter a valid number.
+        <mat-hint>Valid number is range: 0-255</mat-hint>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>G</mat-label>
+      <input matInput formControlName="g" />
+      <mat-error *ngIf="rgbConvertorForm.get('g')?.hasError('required')"
+        >Please enter number.</mat-error
+      >
+      <mat-error
+        *ngIf="
+          rgbConvertorForm.get('g')?.hasError('pattern') ||
+          rgbConvertorForm.get('g')?.hasError('min') ||
+          rgbConvertorForm.get('g')?.hasError('max')
+        "
+        >Please enter a valid number.
+        <mat-hint>Valid number is range: 0-255</mat-hint>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>B</mat-label>
+      <input matInput formControlName="b" />
+      <mat-error *ngIf="rgbConvertorForm.get('b')?.hasError('required')"
+        >Please enter number.</mat-error
+      >
+      <mat-error
+        *ngIf="
+          rgbConvertorForm.get('b')?.hasError('pattern') ||
+          rgbConvertorForm.get('b')?.hasError('min') ||
+          rgbConvertorForm.get('b')?.hasError('max')
+        "
+        >Please enter a valid number.
+        <mat-hint>Valid number is range: 0-255</mat-hint>
+      </mat-error>
+    </mat-form-field>
+    <button
+      [disabled]="!rgbConvertorForm.valid"
+      mat-raised-button
+      color="primary"
+    >
+      Convert
+    </button>
+  </form>
+  <mat-list class="rgb-convertor-result" role="list">
+    <h3>History:</h3>
+    <mat-list-item role="listitem" *ngFor="let hex of result"
+      >Rgb = {{ hex.rgb }} convert to Hex is {{ hex.hexColor }}</mat-list-item
+    >
+  </mat-list>
+</div>
